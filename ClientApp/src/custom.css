@@ -1,0 +1,47 @@
+/* Provide sufficient contrast against white background */
+a {
+  color: #0366d6;
+}
+
+code {
+  color: #E01A76;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.ui.secondary.menu {
+  background-color:grey !important;
+}
+
+.ui.table td{
+  text-align:center !important;
+}
+
+.ui.table{
+  text-align:center !important;
+}
+
+.ui.blue.button{
+  margin-top:10px !important;
+}
+
+.ui.form input{
+  width:720px !important;
+}
+
+.ui.selection.dropdown{
+  min-width: 2em !important;
+}
+
+#copyright {
+  margin-top: 100px;
+}
+
+#pagination{
+  float: right;
+  background-color:blue;
+}
