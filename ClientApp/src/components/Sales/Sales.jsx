@@ -23,10 +23,11 @@ const Sales = () =>{
   const [item, setitem]=useState({});
 
   const [currentPage, setcurrentPage]=useState(1);
-  const [itemperpage, setItemperpage]=useState(2);
+  const [itemperpage, setItemperpage]=useState(5);
   const indexOfLastItem = currentPage * itemperpage;
   const indexOfFirstItem = indexOfLastItem - itemperpage;
 
+  const [order, setOrder]=useState(0);
 
  //Edit model
  function setEditForm(item)
@@ -70,6 +71,94 @@ function fechData(){
   fechData();
 },[])
 
+function sortByCustomer() {
+
+  const sortedItems = items.sort((a, b) => {
+    const firstName = a.customer.name.toUpperCase() // ignore upper and lowercase
+    const secondName = b.customer.name.toUpperCase() // ignore upper and lowercase
+
+    if (firstName < secondName)
+      return -1
+    if (firstName > secondName)
+      return 1
+    else return 0
+  })
+  if (order === 0) {
+    setOrder(1);
+    setItems(sortedItems);
+  }
+  else {
+    setOrder(0);
+    setItems(sortedItems.reverse());
+  }
+}
+
+function sortByProduct() {
+
+  const sortedItems = items.sort((a, b) => {
+    const firstName = a.product.name.toUpperCase() // ignore upper and lowercase
+    const secondName = b.product.name.toUpperCase() // ignore upper and lowercase
+
+    if (firstName < secondName)
+      return -1
+    if (firstName > secondName)
+      return 1
+    else return 0
+  })
+  if (order === 0) {
+    setOrder(1);
+    setItems(sortedItems);
+  }
+  else {
+    setOrder(0);
+    setItems(sortedItems.reverse());
+  }
+}
+
+function sortByStore() {
+
+  const sortedItems = items.sort((a, b) => {
+    const firstName = a.store.name.toUpperCase() // ignore upper and lowercase
+    const secondName = b.store.name.toUpperCase() // ignore upper and lowercase
+
+    if (firstName < secondName)
+      return -1
+    if (firstName > secondName)
+      return 1
+    else return 0
+  })
+  if (order === 0) {
+    setOrder(1);
+    setItems(sortedItems);
+  }
+  else {
+    setOrder(0);
+    setItems(sortedItems.reverse());
+  }
+}
+
+function sortByDate() {
+
+  const sortedItems = items.sort((a, b) => {
+    const firstName = a.dateSold // ignore upper and lowercase
+    const secondName = b.dateSold // ignore upper and lowercase
+
+    if (firstName < secondName)
+      return -1
+    if (firstName > secondName)
+      return 1
+    else return 0
+  })
+  if (order === 0) {
+    setOrder(1);
+    setItems(sortedItems);
+  }
+  else {
+    setOrder(0);
+    setItems(sortedItems.reverse());
+  }
+}
+
    return (
 
      <div>
@@ -87,10 +176,10 @@ function fechData(){
 <Table celled>
     <Table.Header>
       <Table.Row>
-        <Table.HeaderCell>Customer</Table.HeaderCell>
-        <Table.HeaderCell>Product</Table.HeaderCell>
-        <Table.HeaderCell>Store</Table.HeaderCell>
-        <Table.HeaderCell>Date Sold</Table.HeaderCell>
+        <Table.HeaderCell onClick={sortByCustomer}>Customer<Icon name='sort'/></Table.HeaderCell>
+        <Table.HeaderCell onClick={sortByProduct}>Product<Icon name='sort'/></Table.HeaderCell>
+        <Table.HeaderCell onClick={sortByStore}>Store<Icon name='sort'/></Table.HeaderCell>
+        <Table.HeaderCell onClick={sortByDate}>Date Sold<Icon name='sort'/></Table.HeaderCell>
         <Table.HeaderCell>Actions</Table.HeaderCell>
         <Table.HeaderCell>Actions</Table.HeaderCell>
       </Table.Row>

@@ -4,7 +4,7 @@ import { Dropdown } from 'semantic-ui-react'
 function DropdownManu(props) {
 
     const pages=[
-        {key:1, value:"2", text: "2"},
+        {key:1, value:"4", text: "4"},
         {key:2, value:"3", text: "3"}
       ];
 
@@ -16,7 +16,7 @@ function DropdownManu(props) {
     
 return(
     <Dropdown 
-    placeholder='2' 
+    placeholder='5' 
     selection
     search
     options={pages}

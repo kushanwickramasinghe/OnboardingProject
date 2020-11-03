@@ -16,10 +16,11 @@ const Products = () =>{
   const [item, setitem]=useState({});
 
   const [currentPage, setcurrentPage]=useState(1);
-  const [itemperpage, setItemperpage]=useState(2);
+  const [itemperpage, setItemperpage]=useState(5);
   const indexOfLastItem = currentPage * itemperpage;
   const indexOfFirstItem = indexOfLastItem - itemperpage;
 
+  const [order, setOrder]=useState(0);
 
  //Edit model
  function setEditForm(item)
@@ -59,6 +60,46 @@ function fechData(){
   fechData();
 },[])
 
+function sortByName() {
+
+  const sortedItems = items.sort((a, b) => {
+    const firstName = a.name.toUpperCase() // ignore upper and lowercase
+    const secondName = b.name.toUpperCase() // ignore upper and lowercase
+
+    if (firstName < secondName)
+      return -1
+    if (firstName > secondName)
+      return 1
+    else return 0
+  })
+  if (order === 0) {
+    setOrder(1);
+    setItems(sortedItems);
+  }
+  else {
+    setOrder(0);
+    setItems(sortedItems.reverse());
+  }
+}
+
+function sortByPrice() {
+
+  const sortedItems = items.sort((a, b) => {
+
+    if (order === 0) {
+      setOrder(1);
+      return a.price-b.price;     
+    }
+
+    else{
+      setOrder(0);
+      return b.price-a.price;
+    }
+  })
+
+  setItems(sortedItems);
+}
+
    return (
 
      <div>
@@ -70,8 +111,8 @@ function fechData(){
 <Table celled>
     <Table.Header>
       <Table.Row>
-        <Table.HeaderCell>Name</Table.HeaderCell>
-        <Table.HeaderCell>Price</Table.HeaderCell>
+        <Table.HeaderCell onClick={sortByName}>Name<Icon name='sort'/></Table.HeaderCell>
+        <Table.HeaderCell onClick={sortByPrice}>Price<Icon name='sort'/></Table.HeaderCell>
         <Table.HeaderCell>Actions</Table.HeaderCell>
         <Table.HeaderCell>Actions</Table.HeaderCell>
       </Table.Row>
