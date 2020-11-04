@@ -41,23 +41,23 @@ function CloseModel(){
     <Modal
       open={open}
     >
-      <Modal.Header>Create Customer</Modal.Header>
+      <Modal.Header>Create customer</Modal.Header>
       <Modal.Content image>
       <Form>
     <Form.Field>
-      <label>Name</label>
+      <label>NAME</label>
       <input onChange={e => setName(e.target.value)} />
     </Form.Field>
     <Form.Field>
-      <label>Address</label>
+      <label>ADDRESS</label>
       <input onChange={e => setAddress(e.target.value)}/> 
 
     </Form.Field>
   </Form>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={()=>createCustomer(Name,Address) } type='submit' color='green'><Icon name='check'/>Create</Button>
-      <Button onClick={CloseModel} color='black'>Cancel</Button>
+      <Button onClick={CloseModel} color='black'>cancel</Button>
+      <Button onClick={()=>createCustomer(Name,Address) } type='submit' color='green'>create<Icon id="btnicon" name='check'/></Button>     
       </Modal.Actions>
     </Modal>
   )

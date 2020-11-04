@@ -41,23 +41,24 @@ function CloseModel(){
     <Modal
       open={open}
     >
-      <Modal.Header>Create Store</Modal.Header>
+      <Modal.Header>Create store</Modal.Header>
       <Modal.Content image>
       <Form>
     <Form.Field>
-      <label>Name</label>
+      <label>NAME</label>
       <input onChange={e => setName(e.target.value)} />
     </Form.Field>
     <Form.Field>
-      <label>Address</label>
+      <label>ADDRESS</label>
       <input onChange={e => setAddress(e.target.value)}/> 
     </Form.Field>
 
   </Form>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={()=>createStore(Name,Address) } type='submit' color='green'><Icon name='check'/>Create</Button>
-      <Button onClick={CloseModel} color='black'>Cancel</Button>
+      <Button onClick={CloseModel} color='black'>cancel</Button>
+      <Button onClick={()=>createStore(Name,Address) } type='submit' color='green'>create<Icon id="btnicon" name='check'/></Button>
+      
       </Modal.Actions>
     </Modal>
   )

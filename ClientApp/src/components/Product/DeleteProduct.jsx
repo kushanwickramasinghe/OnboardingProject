@@ -26,7 +26,7 @@ function DeleteProduct(props) {
       <Modal
       open={open}
     >
-      <Modal.Header>Delete Product</Modal.Header>
+      <Modal.Header>Delete product</Modal.Header>
       <Modal.Content image>
       <Form>
     <Form.Field>
@@ -35,8 +35,9 @@ function DeleteProduct(props) {
   </Form>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={ deleteProduct } type='submit' color='red' icon="window close"><Icon name='window close'/>delete</Button>
-      <Button onClick={() => closeModal(false)} color='black'>Cancel</Button>
+      <Button onClick={() => closeModal(false)} color='black'>cancel</Button>
+      <Button onClick={ deleteProduct } type='submit' color='red' icon="window close">delete<Icon id="btnicon" name='window close'/></Button>
+      
       </Modal.Actions>
     </Modal>
     )

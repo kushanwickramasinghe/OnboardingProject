@@ -113,7 +113,7 @@ function setNoOfItem(number) {
        <DeleteCustomer open={DeleteOpen} closeModal={setDeleteOpen} fetchParentData={fechData} customer={customer}/>
        
        <Button onClick={() => setOpen(true)} color='blue'>New Customer</Button>
-<Table celled>
+<Table class="ui striped table" celled>
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell onClick={sortByName}>Name<Icon name='sort'/></Table.HeaderCell>

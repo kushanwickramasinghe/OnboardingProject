@@ -25,7 +25,7 @@ function DeleteSales(props) {
       <Modal
       open={open}
     >
-      <Modal.Header>Delete Sales</Modal.Header>
+      <Modal.Header>Delete sales</Modal.Header>
       <Modal.Content image>
       <Form>
     <Form.Field>
@@ -34,8 +34,8 @@ function DeleteSales(props) {
   </Form>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={ deleteSales } type='submit' color='red' icon="window close"><Icon name='window close'/>delete</Button>
-      <Button onClick={() => closeModal(false)} color='black'>Cancel</Button>
+      <Button onClick={() => closeModal(false)} color='black'>cancel</Button>
+      <Button onClick={ deleteSales } type='submit' color='red' icon="window close"><Icon id="btnicon" name='window close'/>delete</Button>     
       </Modal.Actions>
     </Modal>
     )

@@ -45,22 +45,22 @@ function EditCustomer(props) {
     <Modal
       open={open}
     >
-      <Modal.Header>Edit Customer</Modal.Header>
+      <Modal.Header>Edit customer</Modal.Header>
       <Modal.Content image>
       <Form>
     <Form.Field>
-      <label>Name</label>
+      <label>NAME</label>
       <input  Value={props.customer.name} onChange={e => setName(e.target.value)}></input>
     </Form.Field>
     <Form.Field>
-      <label>Address</label>
+      <label>ADDRESS</label>
       <input Value={props.customer.address} onChange={e => setAddress(e.target.value)}/>
     </Form.Field>
   </Form>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={()=>editCustomer(name,address)} type='submit'color='green'><Icon name='check'/>Edit</Button>
-      <Button onClick={() => closeModal(false)} color='black'>Cancel</Button>
+      <Button onClick={() => closeModal(false)} color='black'>cancel</Button>
+      <Button onClick={()=>editCustomer(name,address)} type='submit'color='green'>edit<Icon  id="btnicon" name='check'/></Button>     
       </Modal.Actions>
     </Modal>
   )

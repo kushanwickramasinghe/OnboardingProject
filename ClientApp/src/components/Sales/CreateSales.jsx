@@ -81,11 +81,11 @@ function CloseModel(){
     <Modal
       open={open}
     >
-      <Modal.Header>Create Sales</Modal.Header>
+      <Modal.Header>Create sales</Modal.Header>
       <Modal.Content image>
       <Form>
       <Form.Field>
-    <label>Date Sold</label>
+    <label>Date sold</label>
     {/* <Calendar placeholder={dateSold} onChange={date => setDateSold(date)} /> */}
     <input type="date" onChange={e => setDateSold(e.target.value)} />
     </Form.Field>
@@ -102,7 +102,7 @@ function CloseModel(){
     </Form.Field>
     
     <Form.Field>
-    <label>products</label>
+    <label>Product</label>
     <Dropdown 
     placeholder='Products' 
     selection
@@ -113,7 +113,7 @@ function CloseModel(){
     </Form.Field>
 
     <Form.Field>
-    <label>Stores</label>
+    <label>Store</label>
     <Dropdown 
     placeholder='Stores' 
     selection
@@ -126,8 +126,9 @@ function CloseModel(){
   </Form>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={()=>createSales(customerId,productId,storeId,dateSold) } type='submit' color='green'><Icon name='check'/>Create</Button>
-      <Button onClick={CloseModel} color='black'>Cancel</Button>
+      <Button onClick={CloseModel} color='black'>cancel</Button>
+      <Button onClick={()=>createSales(customerId,productId,storeId,dateSold) } type='submit' color='green'>create<Icon id="btnicon" name='check'/></Button>
+      
       </Modal.Actions>
     </Modal>
   )

@@ -32,11 +32,12 @@ const Sales = () =>{
  //Edit model
  function setEditForm(item)
  {  
+   console.log(datesold);
    setitem(item);
    SetCustomer(item.customer.name);
    SetProduct(item.product.name);
    SetStore(item.store.name);
-   SetDateSold((item.dateSold).slice(0,10));
+   SetDateSold(item.dateSold);
    setEditOpen(true);
  }
 
@@ -159,6 +160,15 @@ function sortByDate() {
   }
 }
 
+function setDateFormat(date){
+  var dt=new Date(date);
+  var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  var formattedDate = dt.getDate() + "-" + months[dt.getMonth()] + "-" + dt.getFullYear()
+
+  console.log(formattedDate);
+  
+  return formattedDate;
+}
    return (
 
      <div>
@@ -172,7 +182,7 @@ function sortByDate() {
         />
        <DeleteSales open={DeleteOpen} closeModal={setDeleteOpen} fetchParentData={fechData} sales={item}/>
        
-       <Button onClick={() => setOpen(true)} color='blue'>New Sales</Button>
+       <Button onClick={() => setOpen(true)} color='blue'>New Sale</Button>
 <Table celled>
     <Table.Header>
       <Table.Row>
@@ -193,7 +203,8 @@ function sortByDate() {
       <Table.Cell> {itm.product.name} </Table.Cell>
       <Table.Cell> {itm.store.name} </Table.Cell>
       <Table.Cell> 
-      {(itm.dateSold).slice(0,10)} 
+      {/* {(itm.dateSold).slice(0,10)}  */}
+      {setDateFormat(itm.dateSold)}
         </Table.Cell>
       <Table.Cell><Button onClick={() => setEditForm(itm)} color='yellow' ><Icon name='edit'/>Edit</Button></Table.Cell>
       <Table.Cell><Button onClick={() => setDeleteForm(itm)} color='red'><Icon name='trash'/>Delete</Button></Table.Cell>

@@ -53,23 +53,24 @@ function onChange(e){
     <Modal
       open={open}
     >
-      <Modal.Header>Create Product</Modal.Header>
+      <Modal.Header>Create product</Modal.Header>
       <Modal.Content image>
       <Form>
     <Form.Field>
-      <label>Name</label>
+      <label>NAME</label>
       <input onChange={e => setName(e.target.value)} />
     </Form.Field>
     <Form.Field>
-      <label>Price</label>
+      <label>PRICE</label>
       <input onChange={e => onChange(e)}/> 
 
     </Form.Field>
   </Form>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={()=>createProduct(Name,Price) } type='submit' color='green'><Icon name='check'/>Create</Button>
-      <Button onClick={CloseModel} color='black'>Cancel</Button>
+      <Button onClick={CloseModel} color='black'>cancel</Button>
+      <Button onClick={()=>createProduct(Name,Price) } type='submit' color='green'>create<Icon id="btnicon" name='check'/></Button>
+      
       </Modal.Actions>
     </Modal>
   )

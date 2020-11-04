@@ -57,22 +57,23 @@ function EditProduct(props) {
     <Modal
       open={open}
     >
-      <Modal.Header>Edit Product</Modal.Header>
+      <Modal.Header>Edit product</Modal.Header>
       <Modal.Content image>
       <Form>
     <Form.Field>
-      <label>Name</label>
+      <label>NAME</label>
       <input  Value={props.product.name} onChange={e => setName(e.target.value)}></input>
     </Form.Field>
     <Form.Field>
-      <label>Price</label>
+      <label>PRICE</label>
       <input Value={props.product.price} onChange={e => onChange(e)}/>
     </Form.Field>
   </Form>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={()=>editProduct(name,price)} type='submit'color='green'><Icon name='check'/>Edit</Button>
-      <Button onClick={() => closeModal(false)} color='black'>Cancel</Button>
+      <Button onClick={() => closeModal(false)} color='black'>cancel</Button>
+      <Button onClick={()=>editProduct(name,price)} type='submit'color='green'>edit<Icon id="btnicon" name='check'/></Button>
+      
       </Modal.Actions>
     </Modal>
   )

@@ -5,7 +5,7 @@ import { Dropdown } from 'semantic-ui-react'
 
 function EditSales(props) {
 
-    const {open, closeModal,sales} = props;
+    const {open, closeModal,sales,datesold} = props;
 
     const [id, setId] = useState(sales.salesId);
     const [customers, setCustomers] = useState([]);
@@ -14,7 +14,7 @@ function EditSales(props) {
     const [customerId, setCustomerId] = useState("");
     const [productId, setProductId] = useState("");
     const [storeId, setStoreId] = useState("");
-    const [dateSold, setDateSold] = useState(0);
+    const [dateSold, setDateSold] = useState("");
 
     //fetch data from database for dropdowns
 function fechData(){
@@ -36,13 +36,14 @@ function fechData(){
         setCustomerId(sales.customerId);
         setProductId(sales.productId);
         setStoreId(sales.storeId);
-        setDateSold(sales.dateSold);
+        setDateSold(datesold);
         fechData();
-      },[sales.salesId,sales.customerId,sales.productId,sales.storeId,sales.dateSold])
+      },[sales.salesId,sales.customerId,sales.productId,sales.storeId,datesold])
       
 
       function handleCustomerDropdown(event, {value}){      
         setCustomerId(value)
+        console.log(dateSold);
       }
       
       function handleProductDropdown(event, {value}){
@@ -75,6 +76,8 @@ function fechData(){
           closeModal(false);
           
         }
+
+        
       }
       
     
@@ -83,13 +86,13 @@ function fechData(){
     <Modal
       open={open}
     >
-      <Modal.Header>Edit Sales</Modal.Header>
+      <Modal.Header>Edit sales</Modal.Header>
       <Modal.Content image>
       <Form>
       <Form.Field>
-    <label>Date Sold</label>
+    <label>Date sold</label>
     {/* <DatePicker selected={Date.parse(dateSold)} onChange={(date)=>handleDatePicker(date)} /> */}
-    <input type="date" value={dateSold} onChange={e => setDateSold(e.target.value)} />
+    <input value={(dateSold).slice(0,10)} onChange={e => setDateSold(e.target.value)} />
     </Form.Field>
 
     <Form.Field>
@@ -104,7 +107,7 @@ function fechData(){
     </Form.Field>
     
     <Form.Field>
-    <label>products</label>
+    <label>Product</label>
     <Dropdown 
     placeholder={props.product} 
     selection
@@ -115,7 +118,7 @@ function fechData(){
     </Form.Field>
 
     <Form.Field>
-    <label>Stores</label>
+    <label>Store</label>
     <Dropdown 
     placeholder={props.store} 
     selection
@@ -128,8 +131,9 @@ function fechData(){
   </Form>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={()=>editSales(customerId,productId,storeId,dateSold) } type='submit' color='green'><Icon name='check'/>Edit</Button>
-      <Button onClick={()=>closeModal(false)} color='black'>Cancel</Button>
+      <Button onClick={()=>closeModal(false)} color='black'>cancel</Button>
+      <Button onClick={()=>editSales(customerId,productId,storeId,dateSold) } type='submit' color='green'>edit<Icon  id="btnicon" name='check'/></Button>
+      
       </Modal.Actions>
     </Modal>
   )

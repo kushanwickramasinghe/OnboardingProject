@@ -44,22 +44,22 @@ function EditStore(props) {
     <Modal
       open={open}
     >
-      <Modal.Header>Edit Store</Modal.Header>
+      <Modal.Header>Edit store</Modal.Header>
       <Modal.Content image>
       <Form>
     <Form.Field>
-      <label>Name</label>
+      <label>NAME</label>
       <input  Value={props.store.name} onChange={e => setName(e.target.value)}></input>
     </Form.Field>
     <Form.Field>
-      <label>Address</label>
+      <label>ADDRESS</label>
       <input Value={props.store.address} onChange={e => setAddress(e.target.value)}/>
     </Form.Field>
   </Form>
       </Modal.Content>
       <Modal.Actions>
-      <Button onClick={()=>editStore(name,address)} type='submit'color='green'><Icon name='check'/>Edit</Button>
-      <Button onClick={() => closeModal(false)} color='black'>Cancel</Button>
+      <Button onClick={() => closeModal(false)} color='black'>cancel</Button>
+      <Button onClick={()=>editStore(name,address)} type='submit'color='green'>edit<Icon id="btnicon" name='check'/></Button>    
       </Modal.Actions>
     </Modal>
   )

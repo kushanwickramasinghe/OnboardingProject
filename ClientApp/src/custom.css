@@ -45,3 +45,14 @@ code {
   float: right;
   background-color:blue;
 }
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+#btnicon{
+  float: right;
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
